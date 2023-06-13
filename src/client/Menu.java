@@ -92,8 +92,8 @@ public class Menu {
             atmMg.addEntity(newEntity);
 
         } catch (InputMismatchException e) {
-            System.err.println(" ")
-            System.err.println("|==Has introducido un valor no permitido            ==|")
+            System.err.println(" ");
+            System.err.println("|==Has introducido un valor no permitido            ==|");
             sc.nextLine();
         }
     }
@@ -163,8 +163,8 @@ public class Menu {
             return newUser;
 
         } catch (InputMismatchException e) {
-            System.err.println(" ")
-            System.err.println("|==Has introducido un valor no permitido            ==|")
+            System.err.println(" ");
+            System.err.println("|==Has introducido un valor no permitido            ==|");
             sc.nextLine();
         }
         return null;
@@ -278,8 +278,8 @@ public class Menu {
             entity.addAccount(newAccount);
             user.addAccount(newAccount);
         } catch (InputMismatchException e) {
-            System.err.println(" ")
-            System.err.println("|==Has introducido un valor no permitido            ==|")
+            System.err.println(" ");
+            System.err.println("|==Has introducido un valor no permitido            ==|");
             sc.nextLine();
         }
     }
@@ -688,8 +688,8 @@ public class Menu {
             }
 
         } catch (InputMismatchException e) {
-            System.err.println(" ")
-            System.err.println("|==Has introducido un valor no permitido            ==|")
+            System.err.println(" ");
+            System.err.println("|==Has introducido un valor no permitido            ==|");
             sc.nextLine();
             Menu.payServices(atmMg, user, entity, sc);
         }
