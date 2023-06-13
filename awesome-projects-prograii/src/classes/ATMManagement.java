@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import classes.transactions.Transaction;
+import classes.transaction.Transaction;
 import common.Files;
 import common.Utils;
 import interfaces.IManagement;

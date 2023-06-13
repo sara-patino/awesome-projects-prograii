@@ -1,28 +1,29 @@
 package client;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.NoSuchElementException;
 import java.util.InputMismatchException;
+import java.util.stream.Stream;
 
 import classes.Entity;
 import classes.User;
-import classes.transactions.Deposit;
-import classes.transactions.Transaction;
+import classes.transaction.Deposit;
+import classes.transaction.Transaction;
 import classes.transactions.Transfer;
 import classes.transactions.Withdrawal;
-import classes.transactions.servicePayment.PayGas;
-import classes.transactions.servicePayment.PayLight;
-import classes.transactions.servicePayment.PayPhone;
-import classes.transactions.servicePayment.PayWater;
-import common.Utils;
+import classes.transaction.ServicePayment.PayGas;
+import classes.transaction.ServicePayment.PayLight;
+import classes.transaction.ServicePayment.PayPhone;
+import classes.transaction.ServicePayment.PayWater;
 import enums.ETransactionTypes;
 import classes.ATMManagement;
 import classes.Account;
 
 public class Menu {
 
-    public static Entity ATMMainView(ATMManagement atmMg, Scanner sc) {
+    public static Entity ATMMainView(ATMManagement atmMg, Scanner sc) throws Exception {
         ArrayList<Entity> entities = new ArrayList<Entity>(atmMg.getEntities());
         int choice = 0;
         final int maxChoice = entities.size();
@@ -32,17 +33,17 @@ public class Menu {
                 int index = 1;
 
                 System.out.println("Seleccione un Banco:");
-                for (Entity e : entities) {
-                    System.out.printf("%d) %s\n", index, e.getName());
+                for(Entity e: entities) {
+                    System.out.printf("%d) %s\n",index,e.getName());
                     index++;
                 }
                 choice = sc.nextInt();
-                if (choice < 1 || (choice > maxChoice && choice != 123456789)) {
-                    System.out.println("Esa opción no está permitida eliga una opción entre [1-" + maxChoice + "]");
+                if(choice <1 || (choice>maxChoice && choice!=123456789)) {
+                    System.out.println("Esa opción no está permitida eliga una opción entre [1-"+maxChoice+"]");
                 }
             } catch (InputMismatchException e) {
                 System.err.println(" ");
-                System.err.println("|==Has introducido un valor no permitido            ==|");
+                System.err.println("|==Has introducido un valor no permitido  ==|");
                 sc.nextLine();
             }
         } while (choice < 1 || (choice > maxChoice && choice != 123456789));
@@ -53,6 +54,7 @@ public class Menu {
             return null;
         }
     }
+
 
     public static void adminView(ATMManagement atmMg, Scanner sc) {
         int choice = 0;
@@ -94,8 +96,8 @@ public class Menu {
             atmMg.addEntity(newEntity);
 
         } catch (InputMismatchException e) {
-            System.err.println(" ")
-            System.err.println("|==Has introducido un valor no permitido            ==|")
+            System.err.println(" ");
+            System.err.println("|==Has introducido un valor no permitido            ==|");
             sc.nextLine();
         }
     }
@@ -165,8 +167,8 @@ public class Menu {
             return newUser;
 
         } catch (InputMismatchException e) {
-            System.err.println(" ")
-            System.err.println("|==Has introducido un valor no permitido            ==|")
+            System.err.println(" ");
+            System.err.println("|==Has introducido un valor no permitido            ==|");
             sc.nextLine();
         }
         return null;
@@ -280,8 +282,8 @@ public class Menu {
             entity.addAccount(newAccount);
             user.addAccount(newAccount);
         } catch (InputMismatchException e) {
-            System.err.println(" ")
-            System.err.println("|==Has introducido un valor no permitido            ==|")
+            System.err.println(" ");
+            System.err.println("|==Has introducido un valor no permitido            ==|");
             sc.nextLine();
         }
     }
@@ -690,8 +692,8 @@ public class Menu {
             }
 
         } catch (InputMismatchException e) {
-            System.err.println(" ")
-            System.err.println("|==Has introducido un valor no permitido            ==|")
+            System.err.println(" ");
+            System.err.println("|==Has introducido un valor no permitido            ==|");
             sc.nextLine();
             Menu.payServices(atmMg, user, entity, sc);
         }

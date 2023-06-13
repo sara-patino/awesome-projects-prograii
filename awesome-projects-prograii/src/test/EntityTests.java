@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import classes.Account;
 import classes.Entity;
 import classes.User;
-import classes.transactions.Transaction;
-import classes.transactions.Deposit;
+import classes.transaction.Transaction;
+import classes.transaction.Deposit;
 import enums.ETransactionTypes;
 
 class EntityTests {

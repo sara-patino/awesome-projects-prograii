@@ -1,9 +1,8 @@
-package classes.transactions;
+package classes.transaction;
 
 import classes.Account;
 import classes.Entity;
 import enums.ETransactionTypes;
-import classes.transactions.*;
 
 public class Deposit extends Transaction {
 
