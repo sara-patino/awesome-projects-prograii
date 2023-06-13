@@ -2,20 +2,18 @@ package client;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.NoSuchElementException;
 import java.util.InputMismatchException;
 
 import classes.Entity;
 import classes.User;
-import classes.transactions.Deposit;
-import classes.transactions.Transaction;
+import classes.transaction.Deposit;
+import classes.transaction.Transaction;
 import classes.transactions.Transfer;
 import classes.transactions.Withdrawal;
-import classes.transactions.servicePayment.PayGas;
-import classes.transactions.servicePayment.PayLight;
-import classes.transactions.servicePayment.PayPhone;
-import classes.transactions.servicePayment.PayWater;
-import common.Utils;
+import classes.transaction.ServicePayment.PayGas;
+import classes.transaction.ServicePayment.PayLight;
+import classes.transaction.ServicePayment.PayPhone;
+import classes.transaction.ServicePayment.PayWater;
 import enums.ETransactionTypes;
 import classes.ATMManagement;
 import classes.Account;

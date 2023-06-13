@@ -1,10 +1,10 @@
-package classes.transactions.servicePayment;
+package classes.transaction.ServicePayment;
 
 import java.util.Date;
 
 import classes.Account;
 import classes.Entity;
-import classes.transactions.Transaction;
+import classes.transaction.Transaction;
 import enums.ETransactionTypes;
 import interfaces.IServicePayment;
 

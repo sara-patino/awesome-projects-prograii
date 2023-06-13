@@ -1,4 +1,4 @@
-package classes.transactions.servicePayment;
+package classes.transaction.ServicePayment;
 
 import classes.Account;
 import classes.Entity;
