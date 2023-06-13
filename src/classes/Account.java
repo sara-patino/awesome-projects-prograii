@@ -1,9 +1,8 @@
 package classes;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
-import classes.transactions.Transaction;
+import classes.transaction.Transaction;
 
 public class Account {
 

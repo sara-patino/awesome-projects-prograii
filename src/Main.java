@@ -1,3 +1,4 @@
+import classes.Entity;
 import classes.User;
 import client.Menu;
 
