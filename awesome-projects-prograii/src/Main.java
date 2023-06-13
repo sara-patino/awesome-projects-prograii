@@ -19,7 +19,7 @@ public class Main {
             User user = null;
             Entity entity;
             while(true) {
-                //permanecer en el men� hasta ingresar correctamente
+
                 entity = Menu.ATMMainView(atmMg,sc);
 
                 if (entity != null) user = Menu.bankMainView(entity,sc);

@@ -1,21 +1,17 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import classes.Account;
 import classes.Entity;
 import classes.User;
-import classes.transactions.Deposit;
-import classes.transactions.Transaction;
+import classes.transaction.Deposit;
+import classes.transaction.Transaction;
 import classes.transactions.Transfer;
 import classes.transactions.Withdrawal;
 import enums.ETransactionTypes;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TransactionTests {
 
@@ -54,9 +50,9 @@ class TransactionTests {
 	void transfer() {
 		Transaction newTransaction = new Transfer(50,account,account2,entity,ETransactionTypes.deposit);
 		double amount = newTransaction.getAmount();
-		
-		
-		assertEquals(amount, 50);
+
+
+        assertEquals(amount, 50);
 	}
 
 }

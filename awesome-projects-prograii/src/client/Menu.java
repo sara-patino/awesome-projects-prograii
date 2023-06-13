@@ -1,8 +1,11 @@
 package client;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.util.stream.Stream;
 
 import classes.Entity;
 import classes.User;
@@ -20,7 +23,7 @@ import classes.Account;
 
 public class Menu {
 
-    public static Entity ATMMainView(ATMManagement atmMg, Scanner sc) {
+    public static Entity ATMMainView(ATMManagement atmMg, Scanner sc) throws Exception {
         ArrayList<Entity> entities = new ArrayList<Entity>(atmMg.getEntities());
         int choice = 0;
         final int maxChoice = entities.size();
@@ -30,17 +33,17 @@ public class Menu {
                 int index = 1;
 
                 System.out.println("Seleccione un Banco:");
-                for (Entity e : entities) {
-                    System.out.printf("%d) %s\n", index, e.getName());
+                for(Entity e: entities) {
+                    System.out.printf("%d) %s\n",index,e.getName());
                     index++;
                 }
                 choice = sc.nextInt();
-                if (choice < 1 || (choice > maxChoice && choice != 123456789)) {
-                    System.out.println("Esa opción no está permitida eliga una opción entre [1-" + maxChoice + "]");
+                if(choice <1 || (choice>maxChoice && choice!=123456789)) {
+                    System.out.println("Esa opción no está permitida eliga una opción entre [1-"+maxChoice+"]");
                 }
             } catch (InputMismatchException e) {
                 System.err.println(" ");
-                System.err.println("|==Has introducido un valor no permitido            ==|");
+                System.err.println("|==Has introducido un valor no permitido  ==|");
                 sc.nextLine();
             }
         } while (choice < 1 || (choice > maxChoice && choice != 123456789));
@@ -51,6 +54,7 @@ public class Menu {
             return null;
         }
     }
+
 
     public static void adminView(ATMManagement atmMg, Scanner sc) {
         int choice = 0;

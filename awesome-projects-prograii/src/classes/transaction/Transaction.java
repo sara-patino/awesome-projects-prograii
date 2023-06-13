@@ -1,11 +1,11 @@
 package classes.transaction;
 
-import java.util.Date;
-
 import classes.Account;
 import classes.Entity;
 import enums.ETransactionTypes;
 import interfaces.ITransaction;
+
+import java.util.Date;
 
 public abstract class Transaction implements ITransaction {
 
